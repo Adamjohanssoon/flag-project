@@ -1,0 +1,48 @@
+
+.Navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    padding-bottom: 80px;
+    background-color: var(--background-color-dark);
+    padding: 4px 80px;
+    width: 100%;
+    position: fixed;
+    color: var(--text-color);
+    font-family: "Open Sans", sans-serif;    
+    letter-spacing: 2px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.darkMode-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.Navbar-logo {
+    width: 200px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+@media (max-width: 1000px) {
+    .Navbar {
+       font-size: 12px;
+       padding: 4px 20px;
+    }
+
+    .Navbar-logo {
+        display: none; 
+    }
+}

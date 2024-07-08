@@ -1,0 +1,31 @@
+body {
+    font-family: 'Arial', sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+    color-scheme: light dark;
+}
+
+:root {
+    --background-color: #f2f2f2; 
+}
+
+
+.theme-light {
+    --background-color: #f2f2f2;
+    --text-color: #2b3844;
+    --background-color-dark: white;
+    --background-color-light: #2b3844;
+    --text-color2: #f2f2f2;
+}
+
+.theme-dark {
+    --background-color: #202c36;
+    --text-color: #f2f2f2;
+    --background-color-dark: #2b3844;
+    --background-color-light: white;
+    --text-color2: #202c36;
+}
+
+
+html  {
+    background-color: var(--background-color);
+}
