@@ -36,7 +36,22 @@
     color: inherit;
 }
 
-@media (max-width: 1100px) {
+
+
+
+@media (max-width: 1500px) { 
+    .home-page-cards {
+        width: calc(30%);
+    }
+}
+
+@media (max-width: 1200px) { 
+    .home-page-cards {
+        width: calc(45%);
+    }
+}
+
+@media (max-width: 900px) {
     .home-page-container {
         display: flex;
         flex-direction: column;
@@ -54,4 +69,10 @@
         letter-spacing: 1px;
     }
 }
+
+
+
+
+
+
 

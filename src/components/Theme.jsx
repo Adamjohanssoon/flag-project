@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
 
 const ThemeContext = createContext();
 
@@ -10,6 +10,11 @@ const ThemeProvider = ({ children }) => {
     const toggleTheme = () => {
         setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'))
     }
+
+    useEffect(() => {
+        // Ändra bara body bakgrundsfärg
+        document.querySelector('body').style.backgroundColor = theme === 'light' ? '#f2f2f2' : '#202c36';
+    }, [theme]);
 
     return (
         <ThemeContext.Provider value={{ theme, toggleTheme }}> 

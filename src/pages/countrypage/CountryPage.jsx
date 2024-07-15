@@ -5,12 +5,11 @@ import arrowDark from '../../assets/arrow-left-dark.svg'
 import arrowLight from '../../assets/arrow-left.svg'
 import { useTheme } from '../../components/Theme'
 
-
 const CountryPage = () => {
     const { countryName } = useParams()
     const [country, setCountry] = useState(null)
     const [borderCountries, setBorderCountries] = useState([])
-    const { theme } = useTheme();
+    const { theme } = useTheme()
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -24,20 +23,22 @@ const CountryPage = () => {
                 }
                 const data = await res.json()
                 setCountry(data[0])
-                if(data[0].borders) {
+                if (data[0].borders) {
                     const borderNames = await Promise.all(
                         data[0].borders.map(async (border) => {
                             const borderRes = await fetch(
-                                `https://restcountries.com/v3.1/alpha/${border}` 
-                            );
-                            if(!borderRes.ok) {
-                                throw new Error('Fetch border country is not working')
+                                `https://restcountries.com/v3.1/alpha/${border}`
+                            )
+                            if (!borderRes.ok) {
+                                throw new Error(
+                                    'Fetch border country is not working'
+                                )
                             }
-                            const borderData = await borderRes.json();
-                            return borderData[0].name.common;
+                            const borderData = await borderRes.json()
+                            return borderData[0].name.common
                         })
-                    );
-                    setBorderCountries(borderNames);
+                    )
+                    setBorderCountries(borderNames)
                 } else {
                     setBorderCountries([])
                 }
@@ -46,7 +47,7 @@ const CountryPage = () => {
             }
         }
         if (countryName) {
-            fetchCountry();
+            fetchCountry()
         }
     }, [countryName])
 
@@ -58,14 +59,14 @@ const CountryPage = () => {
         return <div>Loading...</div>
     }
 
-    const arrowIcon = theme === 'light' ? arrowDark : arrowLight;
+    const arrowIcon = theme === 'light' ? arrowDark : arrowLight
 
     return (
         <div className="country-page-container">
-                <button onClick={handleBack} className="back-button">
-                    <img src={arrowIcon} alt="" className="arrow-dark" />
-                    Back
-                </button>         
+            <button onClick={handleBack} className="back-button">
+                <img src={arrowIcon} alt="" className="arrow-dark" />
+                Back
+            </button>
             <div className="countryPageCards">
                 <img
                     src={country.flags.png}
@@ -128,13 +129,19 @@ const CountryPage = () => {
                         </p>
                         <ul className="border-countries-list">
                             {borderCountries.length > 0 ? (
-                            borderCountries.map((border) => (
-                                <li key={border}>
-                                    <Link className="border-text" to={`/country/${border}`}>{border}</Link>
-                                </li>
-                            )) 
+                                borderCountries.map((border) => (
+                                    <Link
+                                        key={border}
+                                        className="border-item"
+                                        to={`/country/${border}`}
+                                    >
+                                        <li className="border-text">
+                                            {border}
+                                        </li>
+                                    </Link>
+                                ))
                             ) : (
-                            <li>No border countries</li>
+                                <li>No border countries</li>
                             )}
                         </ul>
                     </div>

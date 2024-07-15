@@ -45,6 +45,7 @@
     width: calc(50%);
     border-radius: 14px;
     height: auto;
+    max-width: 600px;
 }
 
 .country-info-top {
@@ -70,7 +71,6 @@
 .border-container {
     display: flex;
     align-items: center;
-
 }
 
 .border-countries-list {
@@ -88,11 +88,17 @@
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     background-color: var(--background-color-dark);
+    display: block;
+
 }
 
 .border-countries-list li:hover {
     background-color: var(--background-color-light);
     color: var(--text-color2);
+}
+
+.border-text {
+    display: block;
 }
 
 
@@ -107,7 +113,6 @@ p {
 
 .back-button:hover {
     transform: scale(1.05);
-    border: 1px solid #f2f2f2;
 }
 
 
